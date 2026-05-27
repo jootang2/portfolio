@@ -42,7 +42,7 @@ export default function Home() {
             </div>
             {/* Profile Image */}
             <div className="flex-shrink-0">
-              <div className="relative w-44 h-44 sm:w-56 sm:h-56 rounded-full overflow-hidden ring-2" style={{ ringColor: 'var(--border)' }}>
+              <div className="relative w-44 h-44 sm:w-56 sm:h-56 rounded-full overflow-hidden" style={{ outline: '2px solid var(--border)' }}>
                 <Image
                   src="/images/Juhwan.jpg"
                   alt="송주환 프로필 사진"
