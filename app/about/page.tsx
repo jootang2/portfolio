@@ -36,6 +36,7 @@ export default function About() {
             {[
               { label: 'AI 에이전트 설계', desc: '멀티에이전트 구조 설계 및 역할 분리' },
               { label: '업무 자동화', desc: '반복 업무 식별 → 파이프라인 구축' },
+              { label: 'MCP 통합', desc: 'Model Context Protocol 기반 외부 서비스 연동 (PlayMCP 등)' },
               { label: 'Next.js 웹 개발', desc: 'App Router 기반 풀스택 개발' },
               { label: '데이터 수집·분석', desc: '크롤링, CSV 정리, 트렌드 리서치' },
               { label: 'SNS 자동화', desc: '멀티플랫폼 콘텐츠 생성·게시 파이프라인' },
@@ -66,7 +67,7 @@ export default function About() {
             기술 스택
           </h2>
           <div className="flex flex-wrap gap-2">
-            {['Claude Code', 'Next.js 15', 'TypeScript', 'Tailwind CSS', 'Python', 'Node.js', 'Vercel'].map(
+            {['Claude Code', 'MCP (Model Context Protocol)', 'Next.js 15', 'TypeScript', 'Tailwind CSS', 'Python', 'Node.js', 'Vercel'].map(
               (tech) => (
                 <span
                   key={tech}

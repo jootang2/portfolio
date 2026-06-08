@@ -89,12 +89,13 @@ export const projects: Project[] = [
       { label: '크롤링', description: '공공이 잡코리아 등 채용 플랫폼에서 키워드 기반으로 공고 수집' },
       { label: 'CSV 정리', description: '수집된 공고를 제목·회사·링크 포함 CSV로 구조화' },
       { label: '탐색', description: '대장은 제목 목록을 훑고 관심 공고 링크 클릭 → 원문 이동' },
+      { label: 'MCP 전환', description: '사람인 공고 수집을 REST API 방식에서 PlayMCP(카카오 공식 MCP 서버) 방식으로 전환 — API 키 없이 Claude Code와 대화형으로 공고 검색·수집' },
     ],
     result:
-      '직접 플랫폼을 돌아다니며 탐색하는 시간이 줄었다. 공고 수집은 공공이, 판단은 대장이 — 역할이 명확히 분리됐다.',
+      '직접 플랫폼을 돌아다니며 탐색하는 시간이 줄었다. 공고 수집은 공공이, 판단은 대장이 — 역할이 명확히 분리됐다. MCP 전환 이후 API 키 발급·관리 없이도 사람인 공고를 대화 한 줄로 수집할 수 있게 됐다.',
     status: 'complete',
     screenshots: ['/screenshots/Gonggong_1.png', '/screenshots/Gonggong_2.png'],
-    tags: ['크롤링', 'AX 리서치', '데이터 수집'],
+    tags: ['크롤링', 'AX 리서치', '데이터 수집', 'MCP 연동'],
     links: [
       { label: '채용공고 크롤러 패키징', url: 'https://www.gpters.org/nocode/post/job-posting-crawler-packaging-9UwI6b5ImEGJIPm' },
     ],
@@ -102,6 +103,10 @@ export const projects: Project[] = [
       {
         problem: '초기에는 크롤링 기준 없이 전체 수집하다 보니 500개 이상의 공고가 쌓였다. 토큰 낭비와 처리 시간 증가로 이어졌다.',
         solution: '최근 2주 이내 공고만 수집하는 필터 기준을 스킬에 추가해 수집량과 처리 비용을 대폭 줄였다.',
+      },
+      {
+        problem: 'REST API 방식의 사람인 크롤러는 API 키 발급·관리가 필요했고, 미설정 사용자는 직접 설정 방법을 찾아야 했다.',
+        solution: '사람인 공고 수집을 PlayMCP(카카오 공식 MCP 서버) 방식으로 전환했다. API 키가 불필요하며, MCP 미설정 시 Claude Code가 대화로 설치 안내를 자동 제공하는 UX를 구현했다.',
       },
     ],
   },
