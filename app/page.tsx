@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import ProjectCard from '@/components/ProjectCard'
 import { projects } from '@/lib/projects'
 
@@ -68,6 +69,62 @@ export default function Home() {
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
+        </div>
+      </section>
+
+      {/* Wiki */}
+      <section id="wiki" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="max-w-5xl mx-auto px-6 py-16">
+          <h2 className="text-xl font-bold mb-1" style={{ color: 'var(--foreground)' }}>
+            Knowledge Base
+          </h2>
+          <p className="text-sm mb-8" style={{ color: 'var(--muted)' }}>
+            Fivemonkeys 운영 지식을 체계화하는 Obsidian 기반 지식 관리 시스템
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                icon: '📋',
+                title: '에이전트 활동 로그',
+                desc: '5개 에이전트의 일일 작업을 날짜별로 누적 기록',
+                slug: 'activity-log',
+              },
+              {
+                icon: '🧭',
+                title: '의사결정 기록',
+                desc: '아키텍처·운영 결정을 맥락과 근거 함께 보존',
+                slug: 'decisions',
+              },
+              {
+                icon: '🗂',
+                title: 'Obsidian 기반 구조',
+                desc: 'index / daily / agents / decisions / notes / raw 6개 레이어',
+                slug: 'structure',
+              },
+              {
+                icon: '⚡',
+                title: 'ingest-first 원칙',
+                desc: '선분류 금지. 소스 1개 읽고 자유 기록 후 구조 확정',
+                slug: 'ingest-first',
+              },
+            ].map((item) => (
+              <Link key={item.title} href={`/wiki/${item.slug}`} className="wiki-card block p-5 rounded-xl" style={{ background: 'var(--card)', border: '1px solid var(--border)' }}>
+                <div className="text-2xl mb-3">{item.icon}</div>
+                <p className="text-sm font-semibold mb-1" style={{ color: 'var(--foreground)' }}>
+                  {item.title}
+                </p>
+                <p className="text-xs leading-relaxed" style={{ color: 'var(--muted)' }}>
+                  {item.desc}
+                </p>
+              </Link>
+            ))}
+          </div>
+          <p
+            className="text-xs mt-8 pt-6"
+            style={{ color: 'var(--muted)', borderTop: '1px solid var(--border)' }}
+          >
+            운영 원칙: 선구조·선분류 금지 — 소스 먼저 읽고 자유 기록, 구조는 나중에.
+          </p>
         </div>
       </section>
     </>
